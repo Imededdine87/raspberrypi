@@ -171,7 +171,7 @@ latlong=lat:long'
 
      # if dataage - use:dataage_utcoffset_timetype
      #preprocesslogic='anomprob,trend,avg'
-      preprocesslogic='MIN,MAX,COUNT,VARIANCE,OUTLIERS,ANOMPROB'
+     preprocesslogic='MIN,MAX,COUNT,VARIANCE,OUTLIERS,ANOMPROB'
 
      pathtotmlattrs='oem=n/a,lat=n/a,long=n/a,location=n/a,identifier=n/a'          
      try:
@@ -203,7 +203,7 @@ async def startviper():
           except Exception as e:
             print("ERROR:",e)
             continue
-#preprocesslogic='MIN,MAX,COUNT,VARIANCE,OUTLIERS,ANOMPROB'
+preprocesslogic='MIN,MAX,COUNT,VARIANCE,OUTLIERS,ANOMPROB'
 async def spawnvipers():
 
     loop.run_until_complete(startviper())
