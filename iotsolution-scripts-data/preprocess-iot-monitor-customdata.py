@@ -168,10 +168,10 @@ latlong=lat:long'
 
      streamstojoin="" 
      identifier = "IoT device performance and failures"
-     
+
      # if dataage - use:dataage_utcoffset_timetype
-     # UPDATED PREPROCESSING LOGIC AS REQUESTED
-     
+     preprocesslogic='MIN,MAX,COUNT,VARIANCE,OUTLIERS,ANOMPROB'
+
      pathtotmlattrs='oem=n/a,lat=n/a,long=n/a,location=n/a,identifier=n/a'          
      try:
         result=maadstml.viperpreprocesscustomjson(VIPERTOKEN,VIPERHOST,VIPERPORT,topic,producerid,offset,jsoncriteria,rawdataoutput,maxrows,enabletls,delay,brokerhost,
@@ -202,7 +202,7 @@ async def startviper():
           except Exception as e:
             print("ERROR:",e)
             continue
-preprocesslogic='MIN,MAX,COUNT,VARIANCE,OUTLIERS,ANOMPROB'
+   
 async def spawnvipers():
 
     loop.run_until_complete(startviper())
@@ -212,3 +212,4 @@ loop.create_task(spawnvipers())
 asyncio.set_event_loop(loop)
 
 loop.run_forever()
+
